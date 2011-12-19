@@ -208,7 +208,7 @@ static int socket_send_request(int fd, struct su_initiator *from, struct su_requ
 
 #define write_token(fd, data)				\
 do {							\
-	uint32_t __data = (data);			\
+	uint32_t __data = htonl(data);			\
 	size_t __count = sizeof(__data);		\
 	size_t __len = write((fd), &__data, __count);	\
 	if (__len != __count) {				\
