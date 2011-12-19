@@ -416,10 +416,10 @@ int main(int argc, char *argv[])
     if (fd < 0) {
         deny();
     }
-    if (!socket_send_request(fd, &su_from, &su_to)) {
+    if (socket_send_request(fd, &su_from, &su_to)) {
         deny();
     }
-    if (!socket_receive_result(fd, buf, sizeof(buf))) {
+    if (socket_receive_result(fd, buf, sizeof(buf))) {
         deny();
     }
 
